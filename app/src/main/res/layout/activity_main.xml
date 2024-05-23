@@ -4,8 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:padding="16dp"
     tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        app:queryHint="Search word here"
+        app:iconifiedByDefault="false"
+
+        app:layout_constraintEnd_toStartOf="@id/btn_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_search"
@@ -13,7 +25,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
         android:hint="Search word here"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
         android:padding="12dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/btn_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +41,7 @@
         android:layout_marginStart="8dp"
         android:text="Search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/edit_search"
+        app:layout_constraintStart_toEndOf="@id/search_view"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
@@ -49,7 +65,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_search"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
         tools:text="word" />
 
     <TextView
@@ -57,7 +73,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/gray"
-        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_word"
